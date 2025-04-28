@@ -8,8 +8,7 @@ A mini 3D magic shooter game prototype built with Unity 2022.3.12f1. It demonstr
 - **Movement**: Walk, run (hold `Left Shift`), and jump (`Space`).
 - **16‑Direction Animations**: Blend Trees for smooth directional movement and separate jump animations.
 - **Magic Casting**:
-  - Orb spawn at a designated spawn point.
-  - Orb attaches to hand during cast.
+  - Orb spawn in a hand while casting.
   - Shooting spawns projectile with splash and hit effects.
 - **Sound Effects**: Casting and hit sounds synchronized with actions.
 - **Pause Menu**: Press `Esc` to open/close pause menu; stops time and unlocks cursor.
@@ -34,30 +33,21 @@ A mini 3D magic shooter game prototype built with Unity 2022.3.12f1. It demonstr
 3. **Open** the scene `Assets/MyGame/Scenes/MainMenu.unity`.
 4. **Play** the scene.
 
-## Project Structure
-```
-Assets/
-├─ Art/                # Models, animations, particle textures
-├─ Audio/              # Sound effects (SpellShoot.wav, SpellHit.wav)
-├─ Prefabs/            # MagicProjectile, UI prefabs
-├─ Scenes/             # MainScene.unity
-├─ Scripts/            # C# scripts (PlayerController, PlayerMagic, etc.)
-├─ Animator/           # Animator Controllers and Blend Trees
-└─ README.md           # This file
-```
-
 ## Script Overview
 - **PlayerController.cs**: Handles movement input, camera rotation, jump/run logic, and animation parameters.
 - **PlayerMagic.cs**: Manages orb creation, attachment to hand, shooting logic, and audio for casting.
 - **MagicProjectile.cs**: Controls projectile flight, lifetime, collision detection, hit effect, and hit sound.
-- **PauseMenu.cs**: Toggles pause UI, `Time.timeScale`, and cursor state; handles Resume/Quit buttons.
+- **MenuManager.cs**: Manages the transition between Unity scenes.
 
 ## Customization
 - **Movement Settings**: Adjust speeds, gravity, and turning speed in `PlayerController` component.
 - **Animation Tree**: Edit Blend Trees in the Animator Controller to swap or refine clips.
 - **Magic Effects**: Swap particle prefabs (StarInHand, StarShootSplash, StarHit) in `PlayerMagic` and `MagicProjectile` components.
 - **Audio**: Replace or adjust `shootClip` and `hitClip` in the respective scripts.
-- **UI**: Modify the pause menu layout under `Assets/Scenes/MainScene.unity` → `Canvas/PausePanel`.
+- **UI**: Modify UI layouts:
+  - The pause menu `Assets/MyGame/Scenes/Game.unity` → `Canvas/PauseMenu`.
+  - The main menu `Assets/MyGame/Scenes/MainMenu.unity` → `Canvas/MainMenu`.
+  - The settings menu `Assets/MyGame/Scenes/Settings.unity` → `Canvas/SettingsMenu`.
 
 ## Dependencies
 - Unity 2022.3 LTS
